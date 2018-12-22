@@ -19,3 +19,9 @@ The masked DEM is an excellent reference DEM for robust co-registration of other
 - `tandemx_proc.sh`: wrapper to download, process and mask tiles for user lat/lon bounds, requires temporary hardcoding of account credentials if downloading tiles.
 - `tandemx_mask.py`: mask DEM products using a series of filters from AUX products, intended to remove artifacts and pixels with increased error
 - tandemx_eval.ipynb: Notebook for interactive analysis and visualization, used to evaluate AUX layers for each tile and set thresholds for masking
+
+# Examples
+
+![Tile example](doc/tdm_aux_preview_sm.jpg?raw=true "AUX and DEM products for tile")
+![Masking results](doc/tile_dem_vs_masked_sm.jpg?raw=true "DEM and DEM_masked")
+![Mosaic](doc/tdm_hma_mos_sm.jpg?raw=true "High-mountain Asia mosaic")
