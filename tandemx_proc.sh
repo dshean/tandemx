@@ -5,12 +5,15 @@
 #Save list by cmd-click and downloading list
 #https://download.geoservice.dlr.de/TDM90/
 
-srcdir=~/src/nasadem
-topdir=/nobackup/deshean/data/tandemx/hma/
-cd $topdir
-
 #Turn off auto ls after cd
 unset -f cd
+
+#Location for additional processing scripts, assumed to be in same directory as this script
+#srcdir=~/src/tandemx
+srcdir=$(dirname "$(readlink -f "$0")")
+
+topdir=/nobackup/deshean/data/tandemx/hma/
+cd $topdir
 
 #Download
 
