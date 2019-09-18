@@ -10,6 +10,7 @@ import os
 import glob
 from pygeotools.lib import iolib
 import numpy as np
+import scipy.ndimage as ndimage
 
 if len(sys.argv) != 2:
     sys.exit("Usage: '%s tiledir'" % sys.argv[0])
@@ -55,6 +56,19 @@ mask = np.logical_or(mask, np.isin(com.data, com_invalid))
 #Apply
 dem_masked = np.ma.array(dem, mask=mask)
 print(dem_masked.count())
-
 out_fn = os.path.splitext(dem_fn)[0]+'_masked.tif'
+iolib.writeGTiff(dem_masked, out_fn, dem_ds)
+
+#Dilate mask by n_iter px to remove isolated pixels and values around nodata 
+n_iter = 1
+mask = ndimage.morphology.binary_dilation(mask, iterations=n_iter)
+#To keep valid edges, do subsequent erosion 
+mask = ndimage.morphology.binary_erosion(mask, iterations=n_iter)
+#(dilation of inverted mask, to avoid maasking outer edge)
+#mask = ~(ndimage.morphology.binary_dilation(~mask, iterations=n_iter))
+
+#Apply
+dem_masked = np.ma.array(dem, mask=mask)
+print(dem_masked.count())
+out_fn = os.path.splitext(dem_fn)[0]+'_masked_erode.tif'
 iolib.writeGTiff(dem_masked, out_fn, dem_ds)
