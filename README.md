@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/162760422.svg)](https://zenodo.org/badge/latestdoi/162760422)
+
 # tandemx
 Scripts for processing the TanDEM-X global mosaic
 
