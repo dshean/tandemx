@@ -4,7 +4,7 @@
 Scripts for processing the TanDEM-X global mosaic
 
 # Background
-The TanDEM-X 90m Digital Elevation Model (DEM) is a publicly availalble 90-m (1-arcsec) elevation dataset with global coverage.  It is unprecendented in coverage, resolution (12-m product available), and accuracy.  This repo contains scripts to automatically download tiles (in parallel), clean up, and mosaic for use as a reference DEM.  
+The TanDEM-X 90m Digital Elevation Model (DEM) is a publicly available 90-m (3-arcsec) elevation dataset with global coverage.  It is unprecendented in coverage, resolution (12-m product available), and accuracy.  This repo contains scripts to automatically download tiles (in parallel), clean up, and mosaic for use as a reference DEM.  
 
 See details about the product here: https://geoservice.dlr.de/web/dataguide/tdm90/
 
